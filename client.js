@@ -6,7 +6,7 @@ function readyNow() {
     render()
     console.log("DOM is loaded!");
     // add click event handler that calls the addEmployeeInfo function.
-    $('').on('click', addEmployeeInfo);
+    $('submitButton').on('click', addEmployeeInfo);
 }
 
 function addEmployeeInfo() {
@@ -28,7 +28,7 @@ function addEmployeeInfo() {
 
     }
     employeeTable.push(employee);
-    render();
+    console.log(employeeTable);
 
     //Call jQuery to get the value of each input
 
@@ -38,5 +38,20 @@ function addEmployeeInfo() {
     $('#jobTitleInput').val('');
     $('#annualSalaryInput').val('');
     
+    render()
 }
 
+console.log('Add Employees to Employee Table', employeeTable);
+
+
+function render() {
+    $('#employee').empty();
+    for (let i = 0; i < employeeTable.length; i++) {
+        $('#employee').append(`
+        <li>
+        <span class= "employeeSpan">${employeeTable[i].firstName}</span>: ${employeeTable[i].lastName} ${employeeTable[i].iDNumber} ${employeeTable[i].jobTitle} ${employeeTable[i].annualSalary}
+        <button class="delete" >Delete</button>
+        </li>
+        `)
+}
+}
