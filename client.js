@@ -9,7 +9,7 @@ function onReady() {
     // add click event handler that calls the addEmployeeInfo function.
     $('#submitButton').on('click', addEmployeeInfo);
     // add click event handler that calls the deleteEmployeeInfo function.
-    $('body').on('click','.deleteEmployeeInfo', deleteEmployeeInfo)
+    $('.delete').on('click','.deleteEmployeeInfo', deleteEmployeeInfo)
 }
 
 //A function to add the employees into the employeeTable array//
@@ -38,12 +38,7 @@ function addEmployeeInfo() {
 
     //Call jQuery to get the value of each input
 
-    $('#firstNameInput').val('');
-    $('#lastNameInput').val('');
-    $('#iDNumberInput').val('');
-    $('#jobTitleInput').val('');
-    $('#annualSalaryInput').val('');
-    
+ 
     render()
 }
 
@@ -71,11 +66,13 @@ function render() {
             <td>${employeeTable[i].jobTitle} </td>
             <td>${employeeTable[i].annualSalary}</td>
             <button id="submitButton">Submit</button>
+            <td><button class="delete">Delete!</button></td>
         </tr>
     `)
     monthlyCost = employeeTable[i].annualSalary / 12;
     totalMonthlyCost += monthlyCost;
-
+    
+    deleteEmployeeInfo();
 }
 }
 
@@ -87,7 +84,7 @@ function deleteEmployeeInfo() {
 
 function monthlyCostMaxFontColor() {
     if ( totalMonthlyCost > monthlyCostMax) {
-        $('.monthlyCost').css("color", "red")
+        $('.monthlyCost').css("background-color", "red")
     }
 }
 
