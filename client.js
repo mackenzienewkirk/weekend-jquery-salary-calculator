@@ -12,6 +12,8 @@ function onReady() {
     $('body').on('click','.deleteEmployeeInfo', deleteEmployeeInfo)
 }
 
+//A function to add the employees into the employeeTable array//
+
 function addEmployeeInfo() {
 
     let addedFirstName = $('#firstNameInput').val()
@@ -46,6 +48,8 @@ function addEmployeeInfo() {
 }
 
 console.log('Add Employee info to array', addEmployeeInfo());
+
+
 
 function addEmployeetoTable() {
     addEmployeeInfo();
