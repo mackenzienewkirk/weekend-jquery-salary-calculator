@@ -9,7 +9,7 @@ function onReady() {
     // add click event handler that calls the addEmployeeInfo function.
     $('#submitButton').on('click', addEmployeeInfo);
     // add click event handler that calls the deleteEmployeeInfo function.
-    $('.delete').on('click','.deleteEmployeeInfo', deleteEmployeeInfo)
+    $('body').on('click','.deleteEmployeeInfo', deleteEmployeeInfo)
 }
 
 //A function to add the employees into the employeeTable array//
@@ -18,8 +18,8 @@ function addEmployeeInfo() {
 
     let addedFirstName = $('#firstNameInput').val()
     let addedLastName = $('#lastNameInput').val()
-    let addedIDNumber = $('#iDNumberInput').val()
     let addedJobTitle = $('#jobTitleInput').val()
+    let addedIDNumber = $('#iDNumberInput').val()
     let addedAnnualSalary = $('#annualSalaryInput').val()
 
 
@@ -28,8 +28,8 @@ function addEmployeeInfo() {
     let employee = {
         firstName: addedFirstName,
         lastName: addedLastName,
-        iDNumber: Number(addedIDNumber),
         jobTitle: addedJobTitle,
+        iDNumber: Number(addedIDNumber),
         annualSalary: Number(addedAnnualSalary)
 
     }
@@ -38,11 +38,8 @@ function addEmployeeInfo() {
 
     //Call jQuery to get the value of each input
 
- 
     render()
 }
-
-console.log('Add Employee info to array', addEmployeeInfo());
 
 
 
@@ -62,8 +59,8 @@ function render() {
         <tr>
             <td> ${employeeTable[i].firstName}</td>
             <td>${employeeTable[i].lastName} </td>
-            <td>${employeeTable[i].iDNumber} </td>
             <td>${employeeTable[i].jobTitle} </td>
+            <td>${employeeTable[i].iDNumber} </td>
             <td>${employeeTable[i].annualSalary}</td>
             <button id="submitButton">Submit</button>
             <td><button class="delete">Delete!</button></td>
@@ -73,8 +70,10 @@ function render() {
     totalMonthlyCost += monthlyCost;
     
     deleteEmployeeInfo();
+    monthlyCostMaxFontColor();
 }
 }
+
 
 function deleteEmployeeInfo() {
     console.log( 'This is to delete employees');
@@ -83,6 +82,7 @@ function deleteEmployeeInfo() {
 }
 
 function monthlyCostMaxFontColor() {
+    console.log('This is to turn the monthly costs over the max red');
     if ( totalMonthlyCost > monthlyCostMax) {
         $('.monthlyCost').css("background-color", "red")
     }
