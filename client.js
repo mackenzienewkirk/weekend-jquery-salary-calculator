@@ -1,12 +1,13 @@
-$(document).ready(readyNow);
+$(document).ready(onReady);
 
 let employeeTable = [];
 
-function readyNow() {
-    render()
+function onReady() {
     console.log("DOM is loaded!");
     // add click event handler that calls the addEmployeeInfo function.
-    $('submitButton').on('click', addEmployeeInfo);
+    $('#submitButton').on('click', addEmployeeInfo);
+    // add click event handler that calls the deleteEmployeeInfo function.
+    $('body').on('click','.deleteEmployeeInfo', deleteEmployeeInfo)
 }
 
 function addEmployeeInfo() {
@@ -41,17 +42,22 @@ function addEmployeeInfo() {
     render()
 }
 
-console.log('Add Employees to Employee Table', employeeTable);
+console.log('Add Employees to Employee Table', addEmployeeInfo());
 
 
 function render() {
-    $('#employee').empty();
+    $('.employee').empty();
     for (let i = 0; i < employeeTable.length; i++) {
-        $('#employee').append(`
+        $('.employee').append(`
         <li>
         <span class= "employeeSpan">${employeeTable[i].firstName}</span>: ${employeeTable[i].lastName} ${employeeTable[i].iDNumber} ${employeeTable[i].jobTitle} ${employeeTable[i].annualSalary}
-        <button class="delete" >Delete</button>
         </li>
-        `)
+    `)
 }
+}
+
+function deleteEmployeeInfo() {
+    console.log( 'This is to delete employees');
+    $(this).parent().parent().remove();
+
 }
