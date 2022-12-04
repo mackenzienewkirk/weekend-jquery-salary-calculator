@@ -1,6 +1,7 @@
 $(document).ready(onReady);
 
 let employeeTable = [];
+let monthlyCost = 0;
 
 function onReady() {
     console.log("DOM is loaded!");
@@ -17,6 +18,7 @@ function addEmployeeInfo() {
     let addedIDNumber = $('#iDNumberInput').val()
     let addedJobTitle = $('#jobTitleInput').val()
     let addedAnnualSalary = $('#annualSalaryInput').val()
+
 
 //Create an object for each employee to be pushed into the employeeTable array.
 
@@ -46,6 +48,7 @@ console.log('Add Employees to Employee Table', addEmployeeInfo());
 
 
 function render() {
+    totalMonthlyCost = 0;
     $('.employee').empty();
     for (let i = 0; i < employeeTable.length; i++) {
         $('.employee').append(`
@@ -53,6 +56,9 @@ function render() {
         <span class= "employeeSpan">${employeeTable[i].firstName}</span>: ${employeeTable[i].lastName} ${employeeTable[i].iDNumber} ${employeeTable[i].jobTitle} ${employeeTable[i].annualSalary}
         </li>
     `)
+    monthlyCost = employeeTable[i].annualSalary / 12;
+    totalMonthlyCost += monthlyCost;
+
 }
 }
 
