@@ -17,7 +17,7 @@ function addEmployeeInfo() {
     let addedJobTitle = $('#jobTitleInput').val()
     let addedAnnualSalary = $('#annualSalaryInput').val()
 
-//Create an object for each employee to be pushed into the emplyeeTable array.
+//Create an object for each employee to be pushed into the employeeTable array.
 
     let employee = {
         firstName: addedFirstName,
