@@ -2,6 +2,7 @@ $(document).ready(onReady);
 
 let employeeTable = [];
 let monthlyCost = 0;
+let monthlyCostMax = 20000;
 
 function onReady() {
     console.log("DOM is loaded!");
@@ -44,17 +45,29 @@ function addEmployeeInfo() {
     render()
 }
 
-console.log('Add Employees to Employee Table', addEmployeeInfo());
+console.log('Add Employee info to array', addEmployeeInfo());
+
+function addEmployeetoTable() {
+    addEmployeeInfo();
+    
+    render()
+}
 
 
 function render() {
+    console.log('this is the render function');
     totalMonthlyCost = 0;
     $('.employee').empty();
     for (let i = 0; i < employeeTable.length; i++) {
         $('.employee').append(`
-        <li>
-        <span class= "employeeSpan">${employeeTable[i].firstName}</span>: ${employeeTable[i].lastName} ${employeeTable[i].iDNumber} ${employeeTable[i].jobTitle} ${employeeTable[i].annualSalary}
-        </li>
+        <tr>
+            <td> ${employeeTable[i].firstName}</td>
+            <td>${employeeTable[i].lastName} </td>
+            <td>${employeeTable[i].iDNumber} </td>
+            <td>${employeeTable[i].jobTitle} </td>
+            <td>${employeeTable[i].annualSalary}</td>
+            <button id="submitButton">Submit</button>
+        </tr>
     `)
     monthlyCost = employeeTable[i].annualSalary / 12;
     totalMonthlyCost += monthlyCost;
@@ -67,3 +80,10 @@ function deleteEmployeeInfo() {
     $(this).parent().parent().remove();
 
 }
+
+function monthlyCostMaxFontColor() {
+    if ( totalMonthlyCost > monthlyCostMax) {
+        $('.monthlyCost').css("color", "red")
+    }
+}
+
