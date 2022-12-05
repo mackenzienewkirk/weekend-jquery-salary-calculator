@@ -28,7 +28,7 @@ function renderEmployeeTable() {
             <td>${employee.iDNumber} </td>
             <td>${employee.annualSalary}</td>
             <button id="submitButton">Submit</button>
-            <td><button class="delete">Delete!</button></td>
+            <td><button class="deleteButton">Delete!</button></td>
         </tr>
             `)
     }
