@@ -10,7 +10,7 @@ function onReady() {
     // add click event handler that calls the addEmployeeInfo function.
     $('#submitButton').on('click', onSubmit);
     // add click event handler that calls the deleteEmployeeInfo function.
-    $('#deleteButton').on('click', renderEmployeeTable);
+    $('body').on('click', '.deleteButton', deleteEmployee);
 }
 
 function renderEmployeeTable() {
@@ -50,6 +50,9 @@ function onSubmit() {
         annualSalary: Number(addedAnnualSalary)
 
     }
+
+    $('input').val('');
+
     employees.push(employee);
     console.log(employees);
     renderEmployeeTable()
@@ -61,45 +64,15 @@ function renderTotalMonthlySalary() {
         annualTotalSalary += employee.annualSalary;
     }
     let totalMonthlySalary = annualTotalSalary / 12;
+
+    if (totalMonthlySalary > 20000) {
+        $('#monthlyTotal').addClass('overBudgetText')
+    }
     $('#monthlyTotalText').text(totalMonthlySalary);
 }
 
+function deleteEmployee() {
+    console.log( 'This is to delete employees');
+    $(this).parent().parent().remove();
 
-// function render() {
-//     console.log('this is the render function');
-//     totalMonthlyCost = 0;
-//     $('.employee').empty();
-//     for (let i = 0; i < employees.length; i++) {
-//         $('.employee').append(`
-//         <tr>
-//             <td> ${employees[i].firstName}</td>
-//             <td>${employees[i].lastName} </td>
-//             <td>${employees[i].jobTitle} </td>
-//             <td>${employees[i].iDNumber} </td>
-//             <td>${employees[i].annualSalary}</td>
-//             <button id="submitButton">Submit</button>
-//             <td><button class="delete">Delete!</button></td>
-//         </tr>
-//     `)
-//     monthlyCost = employees[i].annualSalary / 12;
-//     totalMonthlyCost += monthlyCost;
-    
-//     deleteEmployeeInfo();
-//     monthlyCostMaxFontColor();
-// }
-// }
-
-
-// function deleteEmployeeInfo() {
-//     console.log( 'This is to delete employees');
-//     $(this).parent().parent().remove();
-
-// }
-
-// function monthlyCostMaxFontColor() {
-//     console.log('This is to turn the monthly costs over the max red');
-//     if ( totalMonthlyCost > monthlyCostMax) {
-//         $('.monthlyCost').css("background-color", "red")
-//     }
-// }
-
+}
