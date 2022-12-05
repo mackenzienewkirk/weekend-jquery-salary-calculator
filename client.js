@@ -62,8 +62,8 @@ function renderTotalMonthlySalary() {
     }
     let totalMonthlySalary = annualTotalSalary / 12;
     $('#monthlyTotalText').text(totalMonthlySalary);
-
 }
+
 
 // function render() {
 //     console.log('this is the render function');
