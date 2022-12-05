@@ -3,16 +3,14 @@ $(document).ready(onReady);
 
 let employees = [];
 
-let monthlyCost = 0;
-let monthlyCostMax = 20000;
-
 function onReady() {
+    renderEmployeeTable();
+    renderTotalMonthlySalary();
     console.log("DOM is loaded!");
     // add click event handler that calls the addEmployeeInfo function.
     $('#submitButton').on('click', onSubmit);
     // add click event handler that calls the deleteEmployeeInfo function.
     $('#deleteButton').on('click', renderEmployeeTable);
-    renderEmployeeTable();
 }
 
 function renderEmployeeTable() {
@@ -57,7 +55,15 @@ function onSubmit() {
     renderEmployeeTable()
 }
 
+function renderTotalMonthlySalary() {
+    let annualTotalSalary = 0;
+    for (let employee of employees) {
+        annualTotalSalary += employee.annualSalary;
+    }
+    let totalMonthlySalary = annualTotalSalary / 12;
+    $('#monthlyTotalText').text(totalMonthlySalary);
 
+}
 
 // function render() {
 //     console.log('this is the render function');
