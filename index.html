@@ -8,16 +8,20 @@
         <title>Salary Calculator</title>
     </head>
     <body>
-        <h1>Salary Calculator</h1>
-        <h3>Add Employee</h3>
-    <div>
+        <header>
+            <h1>Salary Calculator</h1>
+            <h3>Add Employee</h3>
+        </header>
+    <main>
+        <section></section>
         <input id="firstNameInput" type="text" placeholder="First Name">
         <input id="lastNameInput" type="text" placeholder="Last Name">
         <input id="jobTypeInput" type="text" placeholder="Job Type">
         <input id="iDNumberInput" type="number" placeholder="ID Number">
         <input id="annualSalaryInput" type="number" placeholder="Annual Salary">
         <button id="submitButton">Submit</button>
-    </div>
+        </section>
+    </main>
     <table>
         <thead>
             <tr>
@@ -26,9 +30,16 @@
                 <th>Job Title</th>
                 <th>ID Number</th>
                 <th>Annual Salary</th>
+                <th></th>
             </tr>
         </thead>
             <tbody class="employee"></tbody>
+            <tbody>
+                <button>Delete</button>
+            </tbody>
         </table>
+        <footer>
+            <h3>Total Monthly: $732</h3>
+        </footer>
     </body>
 </html>

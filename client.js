@@ -1,6 +1,7 @@
 $(document).ready(onReady);
 
-let employeeTable = [];
+
+let employees = [];
 let monthlyCost = 0;
 let monthlyCostMax = 20000;
 
@@ -33,8 +34,8 @@ function addEmployeeInfo() {
         annualSalary: Number(addedAnnualSalary)
 
     }
-    employeeTable.push(employee);
-    console.log(employeeTable);
+    employees.push(employee);
+    console.log(employees);
 
     //Call jQuery to get the value of each input
 
@@ -54,19 +55,19 @@ function render() {
     console.log('this is the render function');
     totalMonthlyCost = 0;
     $('.employee').empty();
-    for (let i = 0; i < employeeTable.length; i++) {
+    for (let i = 0; i < employees.length; i++) {
         $('.employee').append(`
         <tr>
-            <td> ${employeeTable[i].firstName}</td>
-            <td>${employeeTable[i].lastName} </td>
-            <td>${employeeTable[i].jobTitle} </td>
-            <td>${employeeTable[i].iDNumber} </td>
-            <td>${employeeTable[i].annualSalary}</td>
+            <td> ${employees[i].firstName}</td>
+            <td>${employees[i].lastName} </td>
+            <td>${employees[i].jobTitle} </td>
+            <td>${employees[i].iDNumber} </td>
+            <td>${employees[i].annualSalary}</td>
             <button id="submitButton">Submit</button>
             <td><button class="delete">Delete!</button></td>
         </tr>
     `)
-    monthlyCost = employeeTable[i].annualSalary / 12;
+    monthlyCost = employees[i].annualSalary / 12;
     totalMonthlyCost += monthlyCost;
     
     deleteEmployeeInfo();
