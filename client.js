@@ -57,31 +57,6 @@ function onSubmit() {
     renderEmployeeTable()
 }
 
-// function addEmployeeInfo() {
-
-    // let addedFirstName = $('#firstNameInput').val()
-    // let addedLastName = $('#lastNameInput').val()
-    // let addedJobTitle = $('#jobTitleInput').val()
-    // let addedIDNumber = $('#iDNumberInput').val()
-    // let addedAnnualSalary = $('#annualSalaryInput').val()
-
-
-//Create an object for each employee to be pushed into the employeeTable array.
-
-    // let employee = {
-    //     firstName: addedFirstName,
-    //     lastName: addedLastName,
-    //     jobTitle: addedJobTitle,
-    //     iDNumber: Number(addedIDNumber),
-    //     annualSalary: Number(addedAnnualSalary)
-
-    // }
-    // employees.push(employee);
-    // console.log(employees);
-
-    //Call jQuery to get the value of each input
-
-
 
 
 // function render() {
@@ -109,16 +84,16 @@ function onSubmit() {
 // }
 
 
-function deleteEmployeeInfo() {
-    console.log( 'This is to delete employees');
-    $(this).parent().parent().remove();
+// function deleteEmployeeInfo() {
+//     console.log( 'This is to delete employees');
+//     $(this).parent().parent().remove();
 
-}
+// }
 
-function monthlyCostMaxFontColor() {
-    console.log('This is to turn the monthly costs over the max red');
-    if ( totalMonthlyCost > monthlyCostMax) {
-        $('.monthlyCost').css("background-color", "red")
-    }
-}
+// function monthlyCostMaxFontColor() {
+//     console.log('This is to turn the monthly costs over the max red');
+//     if ( totalMonthlyCost > monthlyCostMax) {
+//         $('.monthlyCost').css("background-color", "red")
+//     }
+// }
 
