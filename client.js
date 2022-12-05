@@ -9,9 +9,9 @@ let monthlyCostMax = 20000;
 function onReady() {
     console.log("DOM is loaded!");
     // add click event handler that calls the addEmployeeInfo function.
-    $('#submitButton').on('click', addEmployeeInfo);
+    $('#submitButton').on('click', onSubmit);
     // add click event handler that calls the deleteEmployeeInfo function.
-    $('body').on('click', deleteEmployeeInfo)
+    $('#deleteButton').on('click', renderEmployeeTable);
     renderEmployeeTable();
 }
 
@@ -36,18 +36,13 @@ function renderEmployeeTable() {
     }
 }
 
-
-
-function addEmployeeInfo() {
-
+function onSubmit() {
+    console.log('The submit button');
     let addedFirstName = $('#firstNameInput').val()
     let addedLastName = $('#lastNameInput').val()
     let addedJobTitle = $('#jobTitleInput').val()
     let addedIDNumber = $('#iDNumberInput').val()
     let addedAnnualSalary = $('#annualSalaryInput').val()
-
-
-//Create an object for each employee to be pushed into the employeeTable array.
 
     let employee = {
         firstName: addedFirstName,
@@ -59,11 +54,33 @@ function addEmployeeInfo() {
     }
     employees.push(employee);
     console.log(employees);
+    renderEmployeeTable()
+}
+
+// function addEmployeeInfo() {
+
+    // let addedFirstName = $('#firstNameInput').val()
+    // let addedLastName = $('#lastNameInput').val()
+    // let addedJobTitle = $('#jobTitleInput').val()
+    // let addedIDNumber = $('#iDNumberInput').val()
+    // let addedAnnualSalary = $('#annualSalaryInput').val()
+
+
+//Create an object for each employee to be pushed into the employeeTable array.
+
+    // let employee = {
+    //     firstName: addedFirstName,
+    //     lastName: addedLastName,
+    //     jobTitle: addedJobTitle,
+    //     iDNumber: Number(addedIDNumber),
+    //     annualSalary: Number(addedAnnualSalary)
+
+    // }
+    // employees.push(employee);
+    // console.log(employees);
 
     //Call jQuery to get the value of each input
 
-    renderEmployeeTable()
-}
 
 
 
